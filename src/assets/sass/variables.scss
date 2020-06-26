@@ -1,0 +1,50 @@
+@import "bulma/sass/utilities/initial-variables.sass";
+
+// My colors
+$base-black-color: 291;
+$color-intensity: 30%;
+$black: hsl($base-black-color, $color-intensity, 4%);
+$black-bis: hsl($base-black-color, $color-intensity, 7%);
+$black-ter: hsl($base-black-color, $color-intensity, 14%);
+$grey-darker: hsl($base-black-color, $color-intensity, 21%);
+$grey-dark: hsl($base-black-color, $color-intensity, 28%);
+$grey: hsl($base-black-color, $color-intensity, 48%);
+
+$accent: #741066;
+$orange-box: #9e5f0d;
+$blue-box: rgb(19, 118, 143);
+
+// Bulma Overrides
+$scheme-main: $black;
+$scheme-main-bis: $black-bis;
+$scheme-main-ter: $black-ter;
+$scheme-invert: $white;
+$scheme-invert-bis: $white-bis;
+$scheme-invert-ter: $white-ter;
+
+$background: $black-ter;
+
+$border: $grey;
+$border-hover: $grey-light;
+$border-light: $grey-lighter;
+$border-light-hover: $grey-lightest;
+
+// Text colors
+$text: $grey-light;
+$text-invert: $grey-darker;
+$text-light: $grey;
+$text-strong: $white;
+
+// Link colors
+$link-hover: $white;
+$link-hover-border: $grey-dark;
+
+$link-focus: $white;
+$link-focus-border: $blue;
+
+$link-active: $white;
+$link-active-border: $grey-light;
+
+// Modals
+$modal-background-background-color: $black;
+$box-shadow: unset;

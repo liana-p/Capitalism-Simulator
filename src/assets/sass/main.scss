@@ -1,0 +1,97 @@
+@import "./variables.scss";
+@import "bulma/sass/utilities/functions.sass";
+
+
+@import "bulma/sass/utilities/derived-variables.scss";
+
+@import "bulma/sass/utilities/animations.sass";
+@import "bulma/sass/utilities/controls.sass";
+@import "bulma/sass/utilities/mixins.sass";
+@import "bulma/sass/helpers/_all.sass";
+@import "bulma/sass/base/_all.sass";
+@import "bulma/sass/layout/_all.sass";
+
+@import "bulma/sass/grid/columns.sass";
+@import "bulma/sass/elements/_all.sass";
+@import "bulma/sass/components/modal.sass";
+// @import "bulma/sass/elements/box.sass";
+// @import "bulma/sass/elements/progress.sass";
+
+html {
+    background-color: $scheme-main;
+}
+
+body {
+    margin: 0;
+}
+
+.is-full-width {
+    width: 100%;
+}
+
+// Hack to Fix an issue with bulma columns being too big (https://github.com/jgthms/bulma/issues/1540)
+@media screen and (max-width: 1024px) {
+    .columns {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.columns {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.column {
+    padding: 0.25rem;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .25s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+
+.fade-move {
+    transition: transform .25s;
+}
+
+.has-shadow {
+    box-shadow: $box-shadow;
+}
+
+.can-buy {
+    background-color: $accent;
+}
+
+.accent {
+  background-color: $accent;
+}
+
+.cant-buy {
+}
+
+.is-rounded {
+    border-radius: 0.4rem;
+}
+
+.is-bold {
+    font-weight: bold;
+}
+
+.disabled {
+    background-color: $grey-darker;
+    color: $grey;
+    border-color: $grey-darker;
+    pointer-events: none;
+}
+
+.big-button {
+    height: unset;
+}
+
+.content-box {
+    background-color: $scheme-main-ter;
+    border-radius: 0.5rem;
+}
