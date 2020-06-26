@@ -2,7 +2,7 @@
 <div id="app">
         <game-topbar />
         <div class="game-screen">
-            <router-view/>
+            <game />
         </div>
         <debug-buttons v-on:reset="resetGame"/>
         <notification-toast />
@@ -15,7 +15,6 @@
 /** Main component driving the game */
 
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import DebugButtons from '@/components/DebugButtons.vue';
 import { createTimeSave, loadTimeSave, timer, updateTimer } from '@/store/modules/timer';
 import { IGameSave } from '@/interfaces/SaveTypes';
 
@@ -25,6 +24,8 @@ import * as MoneyStore from '@/store/modules/money';
 import * as ModalsStore from '@/store/modules/modals';
 import * as UpgradesStore from '@/store/modules/upgrades';
 // Components
+import Game from '@/views/Game.vue';
+import DebugButtons from '@/components/DebugButtons.vue';
 import NotificationToast from '@/components/NotificationToast.vue';
 import GameTopbar from '@/components/GameTopbar.vue';
 import GameBottomBar from '@/components/GameBottomBar.vue';
@@ -35,6 +36,7 @@ const SAVE_SLOT = 'game-save';
 
 @Component({
     components: {
+        Game,
         DebugButtons,
         NotificationToast,
         GameTopbar,

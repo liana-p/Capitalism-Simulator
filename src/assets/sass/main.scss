@@ -95,3 +95,7 @@ body {
     background-color: $scheme-main-ter;
     border-radius: 0.5rem;
 }
+
+body {
+    user-select: none;
+}
