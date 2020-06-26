@@ -22,7 +22,7 @@
                         </div>
                         <div class="columns is-mobile is-vcentered">
                             <div class="column is-8">
-                                <button class="button big-button box is-full-width" :class="buyButtonClass" v-on:click="buy" :disabled="!canBuy">
+                                <button class="big-button box is-full-width" :class="buyButtonClass" v-on:click="buy" :disabled="!canBuy">
                                     <div class="is-flex is-mobile is-size-5 buy-button-content">
                                         <div class="has-text-left">
                                             <span>Buy</span><br />
@@ -42,8 +42,8 @@
                         </div>
                     </div>
                     <div v-else class="factory-buttons">
-                        <button class="button big-button box is-full-width" :class="buyButtonClass" v-on:click="buy" :disabled="!canBuy">
-                            <p class="is-size-3">Buy {{ factory.data.name }}</p>
+                        <button class="big-button box is-full-width" :class="buyButtonClass" v-on:click="buy" :disabled="!canBuy">
+                            <p class="is-size-4">Buy {{ factory.data.name }}</p>
                             <p class="is-size-5">{{ cost | formatCurrency}}</p>
                         </button>
                     </div>
