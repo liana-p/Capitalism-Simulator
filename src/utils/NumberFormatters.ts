@@ -3,28 +3,28 @@ import numeral from 'numeral';
 
 const currency = '$';
 export function formatCurrency(value: number) {
-    const formatter = generateFormatter(value, true);
-    return numeral(Math.floor(value)).format(formatter);
+    return formatWithOptions(value, true);
 }
 
 export function formatNumber(value: number) {
-    const formatter = generateFormatter(value, false);
-    return numeral(Math.floor(value)).format(formatter);
+    return formatWithOptions(value, false);
 }
 
-function generateFormatter(value: number, includeCurrency: boolean) {
+function formatWithOptions(value: number, includeCurrency: boolean) {
     let currencyPrefix = `${currency} `;
     if (!includeCurrency) {
         currencyPrefix = '';
     }
-    let formatString = `(${currencyPrefix} 0 a)`;
+    let formatString = `(0 a)`;
     if (value > 1000) {
-        formatString = `(${currencyPrefix} 0.00 a)`;
+        formatString = `(0.00 a)`;
     }
     if (value > 1000000000000) {
         formatString = `0.000e+0`;
     }
-    return formatString;
+    let result = numeral(Math.floor(value)).format(formatString);
+    result = currencyPrefix + result;
+    return result;
 }
 
 export function formatTime(time: number) {
