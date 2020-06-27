@@ -31,6 +31,9 @@ export const getters = {
 
 // mutations
 
+/** Adds a modal to the store, displaying it.
+ * The title really shouldn't be hardcoded, but at the moment it is.
+ */
 function addModal(state: ModalState, payload: IModalPayload) {
     const uuid = `${Date.now()}-${Math.random() * 1000}`;
     const modal: IModal = Object.assign({

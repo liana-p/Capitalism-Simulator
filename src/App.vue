@@ -52,8 +52,8 @@ export default class App extends Vue {
     public created() {
         this.loadGame();
         this.gameTicker = setInterval(() => {
-            FactoriesStore.mutations.updateFactoriesProduction();
             updateTimer();
+            FactoriesStore.mutations.updateFactoriesProduction();
             this.saveGame();
         }, 50);
     }

@@ -9,6 +9,7 @@
                             <span class="is-bold is-size-4">{{ modal.title }}</span>
                             <button class="is-large" aria-label="close" v-on:click="close">x</button>
                         </div>
+                        <!-- This is the magic that allows us to display any component dynamically for modals -->
                         <component v-bind="modal" :is="modal.name" />
                     </div>
                 </div>
