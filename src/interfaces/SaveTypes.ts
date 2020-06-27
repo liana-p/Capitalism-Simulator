@@ -18,9 +18,14 @@ export interface MoneyUpdate {
     money: number;
 }
 
+export interface ITimeSave {
+    time: number;
+    lastUpdate: number;
+}
+
 export interface IGameSave {
     factories: FactoriesSave;
     money: MoneySave;
-    time: number;
+    time: ITimeSave;
     upgrades: UpgradesSave;
 }

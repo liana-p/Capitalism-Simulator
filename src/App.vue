@@ -47,20 +47,42 @@ const SAVE_SLOT = 'game-save';
 export default class App extends Vue {
 
     // "game loop" to update money gain from factories at a reasonable framerate
-    public gameTicker!: number;
-
+    public animationFrameRequest!: number;
     public created() {
         this.loadGame();
-        this.gameTicker = setInterval(() => {
-            updateTimer();
-            FactoriesStore.mutations.updateFactoriesProduction();
-            this.saveGame();
-        }, 50);
+        this.gameLoop();
+    }
+
+    public gameLoop() {
+        const timeBefore = timer.time;
+        const moneyBefore = MoneyStore.getters.currentMoney;
+        updateTimer();
+        const newTime = timer.time;
+        const newMoney = MoneyStore.getters.currentMoney;
+        FactoriesStore.mutations.updateFactoriesProduction();
+        this.saveGame();
+        // Only show the away earnings summary screen if offline for more than 5 minutes
+        if (newTime - timeBefore >= 300) {
+            this.showAwayEarningsSummary(newMoney - moneyBefore);
+        }
+        this.animationFrameRequest = window.requestAnimationFrame(() => {
+            this.gameLoop();
+        });
+    }
+
+    public showAwayEarningsSummary(money: number) {
+        ModalsStore.mutations.addModal({
+            name: 'offline-summary-modal',
+            title: 'Offline Earnings',
+            options: {
+                moneyEarned: money,
+            },
+        });
     }
 
     /** debug tool to restart the game from scratch */
     public resetGame() {
-        window.clearInterval(this.gameTicker);
+        window.cancelAnimationFrame(this.animationFrameRequest);
         localStorage.clear();
         window.location.reload();
     }

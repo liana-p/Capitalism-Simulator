@@ -27,11 +27,13 @@ import * as UpgradesStore from '@/store/modules/upgrades';
 // Modals
 import ManagersModal from '@/components/modals/ManagersModal.vue';
 import UpgradesModal from '@/components/modals/UpgradesModal.vue';
+import OfflineSummaryModal from '@/components/modals/OfflineSummaryModal.vue';
 
 @Component({
     components: {
         ManagersModal,
         UpgradesModal,
+        OfflineSummaryModal,
     },
 })
 export default class ModalContainer extends Vue {

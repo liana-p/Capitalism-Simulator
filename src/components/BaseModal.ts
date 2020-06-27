@@ -4,6 +4,7 @@ import * as ModalsStore from '@/store/modules/modals';
 /** Base class for modals, contains props for accessing common data of all modals
  * Also contains a close function so classes extending it can easily close themselves
  */
+@Component
 export class BaseModal extends Vue {
     @Prop(String) public uuid!: string;
     @Prop(String) public name!: string;

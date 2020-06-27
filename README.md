@@ -181,19 +181,19 @@ The types for save data are in `interfaces/SaveTypes.ts`. What gets stored in lo
 
 The game is saved at the end of every main loop tick, to make sure no data is lost if the user suddenly quits the tab
 
-## Upgrades
+### Upgrades
 
 Upgrades are improvements for the player that can be bought. They are built to be extendable with the possibility of upgrades having various effects, but at the moment the only effect implemented is `multiply-revenue`, which allows an upgrade to multiply the revenue of a specific factory by a certain amount, or of all factories at once.
 
 The code to manage them is in `store/modules/upgrades.ts`, which handles purchasing them and applying their effect to factories. Related types are in `interfaces/UpgradeTypes.ts`, and balance data for them is in `data/upgrades.data.ts`. Upgrades are displayed and purchased in the game via the `UpgradesModal` screen.
 
-## Notifications
+### Notifications
 
 Notifications can appear to inform the player of something that happened. At the moment this feature is used to notify the player that a factory has received a speed upgrade
 
 They are managed by `store/modules/notifications.ts`, and displayed in the game by the `NotificationToast` component.
 
-## Modals
+### Modals
 
 Modals are used to make popups appear on top of the game. They are used by the manager and upgrade screens. Modals are managed in the syate by `store/modules/Modals.ts` and their display is done using `ModalContainer.vue`.
 
@@ -206,3 +206,13 @@ ModalsStore.mutations.addModal({
     options: {},
 });
 ```
+
+### Offline earnings summary
+
+If the player comes back to the game after more than 5 minutes, a modal will appear giving a summary of money earned during that time. `App.vue` takes care of calculating that in `handleReturnFromOffline`, and the `OfflineSummaryModal` is the component that displays the info.
+
+## Problems and concerns
+
+* The vuex store updates every 50ms with factory production. While this doesn't cause any issues, it makes devtools hard to use as vuex is being spammed with mutations. Ideally this should be modified so that the money displayed and the real-time progress in the game can be updated without having to actually mutate the state every time, similarly to what the timer does.
+* Sometimes timers for factories will show a glitched number before the end.
+* The Bulma columns aren't very good at not overflowing from the screen when their content is too big. I've tweaked the CSS to make sure everything fits on a mobile screen, but ideally the game should handle that better in the first place.

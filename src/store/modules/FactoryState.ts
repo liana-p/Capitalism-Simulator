@@ -97,7 +97,7 @@ export class FactoryState {
             return 0;
         }
         if (this.running) {
-            if (this.timeToTick >= 1) {
+            if (this.timeToTick >= 1 || !this.hasManager) {
                 let delta = calculateDelta(0, this.timeToTick, timer.time - this.lastTick);
                 delta *= 100;
                 return delta;

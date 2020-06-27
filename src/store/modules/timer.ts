@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { ITimeSave } from '@/interfaces/SaveTypes';
 
 /** Hack to have reactive time that can be used in the store
  * without having to commit new mutations at a high framerate */
@@ -14,13 +15,16 @@ export function setTimeSpeed(speed: number) {
     timeModifier = speed;
 }
 
-export function createTimeSave() {
-    return timer.time;
+export function createTimeSave(): ITimeSave {
+    return {
+        time: timer.time,
+        lastUpdate: timer.lastUpdate,
+    };
 }
 
-export function loadTimeSave(time: number) {
-    timer.time = time;
-    timer.lastUpdate = Date.now() / 1000;
+export function loadTimeSave(save: ITimeSave) {
+    timer.time = save.time;
+    timer.lastUpdate = save.lastUpdate;
 }
 
 export function updateTimer() {
