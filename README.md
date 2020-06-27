@@ -4,6 +4,35 @@ Idle game prototype built in [TypeScript](https://www.typescriptlang.org) with [
 
 Playable at [http://capitalismsimulator.imfast.io](http://capitalismsimulator.imfast.io)
 
+- [Capitalism Simulator](#capitalism-simulator)
+  - [Setup](#setup)
+    - [Install](#install)
+    - [Develop with hot reloading](#develop-with-hot-reloading)
+    - [Make a production build](#make-a-production-build)
+    - [Deploy to prod](#deploy-to-prod)
+  - [Tools and Frameworks](#tools-and-frameworks)
+    - [TypeScript](#typescript)
+    - [Vue.js](#vuejs)
+    - [Vuex](#vuex)
+    - [Sass + Bulma](#sass--bulma)
+    - [Typed vuex store](#typed-vuex-store)
+  - [Game Architecture](#game-architecture)
+    - [Folder Structure](#folder-structure)
+    - [Game flow](#game-flow)
+    - [Game entry point (App.vue)](#game-entry-point-appvue)
+      - [Game.vue](#gamevue)
+    - [Vuex store structure](#vuex-store-structure)
+  - [Features](#features)
+    - [Factories](#factories)
+    - [Managers](#managers)
+    - [Saving and loading](#saving-and-loading)
+    - [Upgrades](#upgrades)
+    - [Notifications](#notifications)
+    - [Modals](#modals)
+    - [Offline earnings summary](#offline-earnings-summary)
+  - [Problems and concerns](#problems-and-concerns)
+
+
 ## Setup
 
 Based on the [vue-cli](https://cli.vuejs.org) base setup
