@@ -92,7 +92,7 @@ The game is built as a vue.js app. `main.ts` is the entrypoint, which just loads
 
 ### Game entry point (App.vue)
 
-`App.vue` loads the game as soon as it's created, using the `loadGame` function. Then it creates an update loop for updating time and money at a reasonable framerate (not using `requestAnimationFrame` because this doesn't need to run at 60 FPS).
+`App.vue` loads the game as soon as it's created, using the `loadGame` function. Then it launches the game loop using requestAnimationFrame
 
 The game loop calls `FactoriesStore.mutations.updateFactoriesProduction` to calculate profits on every tick. Then, the reactivity of Vue takes care of updating the UI everywhere based on what happens.
 
