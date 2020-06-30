@@ -243,5 +243,4 @@ If the player comes back to the game after more than 5 minutes, a modal will app
 ## Problems and concerns
 
 * The vuex store updates every 50ms with factory production. While this doesn't cause any issues, it makes devtools hard to use as vuex is being spammed with mutations. Ideally this should be modified so that the money displayed and the real-time progress in the game can be updated without having to actually mutate the state every time, similarly to what the timer does.
-* Sometimes timers for factories will show a glitched number before the end.
 * The Bulma columns aren't very good at not overflowing from the screen when their content is too big. I've tweaked the CSS to make sure everything fits on a mobile screen, but ideally the game should handle that better in the first place.

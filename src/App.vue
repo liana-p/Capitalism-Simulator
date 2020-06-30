@@ -58,11 +58,11 @@ export default class App extends Vue {
         const moneyBefore = MoneyStore.getters.currentMoney;
         updateTimer();
         const newTime = timer.time;
-        const newMoney = MoneyStore.getters.currentMoney;
         FactoriesStore.mutations.updateFactoriesProduction();
+        const newMoney = MoneyStore.getters.currentMoney;
         this.saveGame();
         // Only show the away earnings summary screen if offline for more than 5 minutes
-        if (newTime - timeBefore >= 300) {
+        if (newTime - timeBefore >= 1 && newMoney > moneyBefore) {
             this.showAwayEarningsSummary(newMoney - moneyBefore);
         }
         this.animationFrameRequest = window.requestAnimationFrame(() => {

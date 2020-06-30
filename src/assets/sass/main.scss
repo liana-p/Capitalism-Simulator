@@ -99,3 +99,8 @@ body {
 body {
     user-select: none;
 }
+
+// Disables the annoying mobile zoom on button double-tap (https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action)
+body {
+    touch-action: manipulation;
+}
